@@ -65,6 +65,9 @@
 
 ;; python tweaks:
 
+;; PlantUML
+(add-to-list 'load-path "~/.emacs.d/personal/")
+(require 'plantuml-mode)
 
 ;; server:
 (server-start)
