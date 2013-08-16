@@ -2,7 +2,7 @@
 
 (require 'prelude-c)
 ;; (require 'prelude-clojure)
-;; (require 'prelude-coffee)
+(require 'prelude-coffee)
 ;; (require 'prelude-common-lisp)
 (require 'prelude-css)
 (require 'prelude-emacs-lisp)
@@ -20,5 +20,6 @@
 ;; (require 'prelude-ruby)
 ;; (require 'prelude-scala)
 (require 'prelude-scheme)
-;; (require 'prelude-scss)
+(require 'prelude-scss)
+(require 'prelude-web)
 (require 'prelude-xml)
