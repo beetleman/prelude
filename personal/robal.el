@@ -19,7 +19,7 @@
 ; turnoff scollbars
 (scroll-bar-mode -1)
 
-(set-default-font "Inconsolata-11")
+(set-default-font "Inconsolata-12")
 
 (setq prelude-whitespace 1)
 
@@ -63,11 +63,6 @@
 
 (skewer-setup)
 
-;; python tweaks:
-
-;; PlantUML
-(add-to-list 'load-path "~/.emacs.d/personal/")
-(require 'plantuml-mode)
 
 ;; server:
 (server-start)

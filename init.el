@@ -32,8 +32,11 @@
 ;; Boston, MA 02110-1301, USA.
 
 ;;; Code:
+(defvar current-user
+      (getenv
+       (if (equal system-type 'windows-nt) "USERNAME" "USER")))
 
-(message "Prelude is powering up... Be patient, Master %s!" (getenv "USER"))
+(message "Prelude is powering up... Be patient, Master %s!" current-user)
 
 (defvar prelude-dir (file-name-directory load-file-name)
   "The root dir of the Emacs Prelude distribution.")
@@ -72,6 +75,10 @@ by Prelude.")
 (add-to-list 'load-path prelude-vendor-dir)
 (prelude-add-subfolders-to-load-path prelude-vendor-dir)
 
+;; reduce the frequency of garbage collection by making it happen on
+;; each 50MB of allocated data (the default is on every 0.76MB)
+(setq gc-cons-threshold 50000000)
+
 ;; the core stuff
 (require 'prelude-packages)
 (require 'prelude-ui)
@@ -96,7 +103,7 @@ by Prelude.")
   (message "Loading personal configuration files in %s..." prelude-personal-dir)
   (mapc 'load (directory-files prelude-personal-dir 't "^[^#].*el$")))
 
-(message "Prelude is ready to do thy bidding, Master %s!" (getenv "USER"))
+(message "Prelude is ready to do thy bidding, Master %s!" current-user)
 
 (prelude-eval-after-init
  ;; greet the use with some useful tip
