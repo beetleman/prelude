@@ -146,3 +146,8 @@
       (error "No email account found"))))
 
 (add-hook 'mu4e-compose-pre-hook 'my-mu4e-set-account)
+
+;; web-mode
+(setq web-mode-engines-alist
+      '(("ctemplate"    . "\\.html\\'"))
+)
