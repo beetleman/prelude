@@ -3,6 +3,7 @@
 ; packages list
 (setq package-list '(auto-complete
                      yasnippet
+                     monokai-theme
                      js2-mode
                      skewer-mode))
 ; initialize
@@ -22,7 +23,8 @@
 (set-default-font "Inconsolata-12")
 
 (setq prelude-whitespace 1)
-
+(setq molokai-theme-kit t)
+(load-theme 'monokai t)
 
 ;; auto-commplete
 (require 'auto-complete-config)
