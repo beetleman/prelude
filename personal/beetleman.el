@@ -29,7 +29,7 @@
 
 (setq prelude-whitespace 1)
 (disable-theme 'zenburn)
-(load-theme 'spolsky t)
+(load-theme 'odersky t)
 
 ;; auto-commplete
 (require 'auto-complete-config)
