@@ -20,8 +20,13 @@
 ; turnoff scollbars
 (scroll-bar-mode -1)
 
-(set-default-font "Source Code Pro")
+; set font:
+(add-to-list 'default-frame-alist '(font . "Inconsolata-g-11"))
+; set cursor color
+(add-to-list 'default-frame-alist '(cursor-color . "white"))
+
 (blink-cursor-mode 1)
+
 (setq prelude-whitespace 1)
 (disable-theme 'zenburn)
 (load-theme 'spolsky t)
