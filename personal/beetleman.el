@@ -3,9 +3,9 @@
 ; packages list
 (setq package-list '(auto-complete
                      yasnippet
-                     monokai-theme
                      js2-mode
-                     skewer-mode))
+                     skewer-mode
+                     sublime-themes))
 ; initialize
 (package-initialize)
 ; refresh
@@ -20,11 +20,11 @@
 ; turnoff scollbars
 (scroll-bar-mode -1)
 
-(set-default-font "Inconsolata-12")
+(set-default-font "Source Code Pro")
 
 (setq prelude-whitespace 1)
-(setq molokai-theme-kit t)
-(load-theme 'monokai t)
+(disable-theme 'zenburn)
+(load-theme 'spolsky t)
 
 ;; auto-commplete
 (require 'auto-complete-config)
