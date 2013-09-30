@@ -21,7 +21,7 @@
 (scroll-bar-mode -1)
 
 (set-default-font "Source Code Pro")
-
+(blink-cursor-mode 1)
 (setq prelude-whitespace 1)
 (disable-theme 'zenburn)
 (load-theme 'spolsky t)
