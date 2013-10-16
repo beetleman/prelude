@@ -21,15 +21,15 @@
 (scroll-bar-mode -1)
 
 ; set font:
-(add-to-list 'default-frame-alist '(font . "Inconsolata-g-11"))
+(add-to-list 'default-frame-alist '(font . "Inconsolata-g-10"))
 ; set cursor color
 (add-to-list 'default-frame-alist '(cursor-color . "white"))
 
 (blink-cursor-mode 1)
 
 (setq prelude-whitespace 1)
-(disable-theme 'zenburn)
-(load-theme 'odersky t)
+; (disable-theme 'zenburn)
+; (load-theme 'odersky t)
 
 ;; auto-commplete
 (require 'auto-complete-config)
@@ -155,6 +155,9 @@
 (add-hook 'mu4e-compose-pre-hook 'my-mu4e-set-account)
 
 ;; web-mode
+(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 (setq web-mode-engines-alist
-      '(("ctemplate"    . "\\.html\\'"))
+      '(("ctemplate"    . "\\.html\\'")
+        ("django"       . "\\.djhtml\\'")
+        )
 )
