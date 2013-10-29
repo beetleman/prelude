@@ -21,7 +21,7 @@
 (scroll-bar-mode -1)
 
 ; set font:
-(add-to-list 'default-frame-alist '(font . "Inconsolata-g-10"))
+(add-to-list 'default-frame-alist '(font . "Inconsolata-12"))
 ; set cursor color
 (add-to-list 'default-frame-alist '(cursor-color . "white"))
 
