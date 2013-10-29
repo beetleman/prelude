@@ -76,7 +76,6 @@
 
 (skewer-setup)
 
-
 ;; server:
 (server-start)
 
@@ -86,73 +85,6 @@
 ;; general tweak:
 
 (define-key global-map (kbd "RET") 'newline-and-indent)
-
-;; mu4e
-(require 'mu4e)
-(require 'smtpmail)
-(setq mu4e-sent-messages-behavior 'delete)
-
-(setq
- mu4e-view-show-images t
- mu4e-view-image-max-width 800
- mu4e-headers-date-format "%d/%b/%Y %H:%M" ; date format
- mu4e-html2text-command "html2text -width 72 -utf8")
-
-
-(setq  mu4e-sent-folder "/nigrantis.tigris@gmail.com/[Gmail].Sent Mail"
-       mu4e-drafts-folder "/nigrantis.tigris@gmail.com/[Gmail].Drafts"
-       mu4e-trash-folder  "/nigrantis.tigris@gmail.com/[Gmail].Trash"
-       user-mail-address "nigrantis.tigris@gmail.com"
-       smtpmail-default-smtp-server "smtp.gmail.com"
-       smtpmail-smtp-server "smtp.gmail.com"
-       smtpmail-stream-type 'starttls
-       smtpmail-smtp-service 587)
-
-
-(defvar my-mu4e-account-alist
-  '(("nigrantis.tigris@gmail.com"
-     (mu4e-sent-folder "/nigrantis.tigris@gmail.com/[Gmail].Sent Mail")
-     (mu4e-drafts-folder "/nigrantis.tigris@gmail.com/[Gmail].Drafts")
-     (setq mu4e-trash-folder  "/nigrantis.tigris@gmail.com/[Gmail].Trash")
-     (user-mail-address "nigrantis.tigris@gmail.com")
-    ;(message-signature-file ".Signature1.txt")
-     (smtpmail-default-smtp-server "smtp.gmail.com")
-    ;(smtpmail-local-domain "account1.tld")
-     (smtpmail-smtp-server "smtp.gmail.com")
-     (smtpmail-stream-type starttls)
-     (smtpmail-smtp-service 587))
-    ("mateusz.probachta@gmail.com"
-     (mu4e-sent-folder "/mateusz.probachta@gmail.com/[Google Mail].Sent Mail")
-     (mu4e-drafts-folder "/mateusz.probachta@gmail.com/[Google Mail].Drafts")
-     (setq mu4e-trash-folder  "/mateusz.probachta@gmail.com/[Google Mail].Trash")
-     (user-mail-address "mateusz.probachta@gmail.com")
-    ;(message-signature-file ".Signature1.txt")
-     (smtpmail-default-smtp-server "smtp.gmail.com")
-    ;(smtpmail-local-domain "account1.tld")
-     (smtpmail-smtp-server "smtp.gmail.com")
-     (smtpmail-stream-type starttls)
-     (smtpmail-smtp-service 587))
-    )
-  )
-(defun my-mu4e-set-account ()
-  "Set the account for composing a message."
-  (let* ((account
-          (if mu4e-compose-parent-message
-              (let ((maildir (mu4e-message-field mu4e-compose-parent-message :maildir)))
-                (string-match "/\\(.*?\\)/" maildir)
-                (match-string 1 maildir))
-            (completing-read (format "Compose with account: (%s) "
-                                     (mapconcat #'(lambda (var) (car var)) my-mu4e-account-alist "/"))
-                             (mapcar #'(lambda (var) (car var)) my-mu4e-account-alist)
-                             nil t nil nil (caar my-mu4e-account-alist))))
-         (account-vars (cdr (assoc account my-mu4e-account-alist))))
-    (if account-vars
-        (mapc #'(lambda (var)
-                  (set (car var) (cadr var)))
-              account-vars)
-      (error "No email account found"))))
-
-(add-hook 'mu4e-compose-pre-hook 'my-mu4e-set-account)
 
 ;; web-mode
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
