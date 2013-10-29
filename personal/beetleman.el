@@ -28,8 +28,9 @@
 (blink-cursor-mode 1)
 
 (setq prelude-whitespace 1)
-; (disable-theme 'zenburn)
-; (load-theme 'odersky t)
+
+(disable-theme 'zenburn)
+(load-theme 'spolsky t)
 
 ;; auto-commplete
 (require 'auto-complete-config)
