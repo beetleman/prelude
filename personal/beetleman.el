@@ -5,6 +5,7 @@
                      yasnippet
                      js2-mode
                      skewer-mode
+                     jedi
                      sublime-themes))
 ; initialize
 (package-initialize)
@@ -66,6 +67,9 @@
 ; Load the snippets
 (yas/load-directory yas/root-directory)
 
+
+;; PROGRAMING STUFF:
+
 ;; js tweaks:
 (setq-default js2-auto-indent-p t)
 (autoload 'js2-mode "js2-mode" nil t)
@@ -77,6 +81,11 @@
 (setq js2-basic-offset 2)
 
 (skewer-setup)
+
+;; python tweaks:
+(add-hook 'python-mode-hook 'jedi:setup)
+(setq jedi:setup-keys t)                      ; optional
+(setq jedi:complete-on-dot t)                 ; optional
 
 ;; server:
 (server-start)
