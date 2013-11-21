@@ -22,7 +22,7 @@
 (scroll-bar-mode -1)
 
 ; set font:
-(add-to-list 'default-frame-alist '(font . "Source Code Pro-10"))
+(add-to-list 'default-frame-alist '(font . "Source Code Pro-11"))
 ; set cursor color
 (add-to-list 'default-frame-alist '(cursor-color . "white"))
 
