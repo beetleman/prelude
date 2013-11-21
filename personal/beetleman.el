@@ -33,6 +33,9 @@
 (disable-theme 'zenburn)
 (load-theme 'spolsky t)
 
+(global-hl-line-mode 1)
+(set-face-attribute hl-line-face nil :underline nil)
+
 ;; auto-commplete
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
