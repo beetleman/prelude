@@ -6,7 +6,8 @@
                      js2-mode
                      skewer-mode
                      jedi
-                     sublime-themes))
+                     sublime-themes
+                     monokai-theme))
 ; initialize
 (package-initialize)
 ; refresh
@@ -31,7 +32,7 @@
 (setq prelude-whitespace 1)
 
 (disable-theme 'zenburn)
-(load-theme 'spolsky t)
+(load-theme 'monokai t)
 
 (global-hl-line-mode 1)
 (set-face-attribute hl-line-face nil :underline nil)
