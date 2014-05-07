@@ -101,6 +101,9 @@ Will only occur if prelude-whitespace is also enabled."
                                          try-complete-lisp-symbol-partially
                                          try-complete-lisp-symbol))
 
+;; smart tab behavior - indent or complete
+(setq tab-always-indent 'complete)
+
 ;; smart pairing for all
 (require 'smartparens-config)
 (setq sp-base-key-bindings 'paredit)
@@ -110,9 +113,10 @@ Will only occur if prelude-whitespace is also enabled."
 
 (show-smartparens-global-mode +1)
 
-(define-key prog-mode-map (kbd "M-(") (lambda (&optional arg) (interactive "P") (sp-wrap-with-pair "(")))
-(define-key prog-mode-map (kbd "M-[") (lambda (&optional arg) (interactive "P") (sp-wrap-with-pair "[")))
-(define-key prog-mode-map (kbd "M-\"") (lambda (&optional arg) (interactive "P") (sp-wrap-with-pair "\"")))
+(define-key prog-mode-map (kbd "M-(") (prelude-wrap-with "("))
+;; FIXME: pick terminal friendly binding
+;; (define-key prog-mode-map (kbd "M-[") (prelude-wrap-with "["))
+(define-key prog-mode-map (kbd "M-\"") (prelude-wrap-with "\""))
 
 ;; disable annoying blink-matching-paren
 (setq blink-matching-paren nil)
@@ -149,6 +153,15 @@ Will only occur if prelude-whitespace is also enabled."
 (setq recentf-save-file (expand-file-name "recentf" prelude-savefile-dir)
       recentf-max-saved-items 500
       recentf-max-menu-items 15)
+
+(defun prelude-recentf-exclude-p (file)
+  "A predicate to decide whether to exclude FILE from recentf."
+  (let ((file-dir (file-truename (file-name-directory file))))
+    (-any-p (lambda (dir)
+              (string-prefix-p dir file-dir))
+            (mapcar 'file-truename (list prelude-savefile-dir package-user-dir)))))
+
+(add-to-list 'recentf-exclude 'prelude-recentf-exclude-p)
 (recentf-mode +1)
 
 ;; use shift + arrow keys to switch between visible buffers
@@ -182,6 +195,14 @@ The body of the advice is in BODY."
 
 (add-hook 'mouse-leave-buffer-hook 'prelude-auto-save-command)
 
+;; Autosave buffers when focus is lost
+(defun prelude-save-all-buffers ()
+  "Save all modified buffers, without prompts."
+  (save-some-buffers 'dont-ask))
+
+(when (version<= "24.4" emacs-version)
+  (add-hook 'focus-out-hook 'prelude-save-all-buffers))
+
 ;; highlight the current line
 (global-hl-line-mode +1)
 
@@ -189,53 +210,10 @@ The body of the advice is in BODY."
 (volatile-highlights-mode t)
 (diminish 'volatile-highlights-mode)
 
-;; note - this should be after volatile-highlights is required
-;; add the ability to copy and cut the current line, without marking it
-(defadvice kill-ring-save (before smart-copy activate compile)
-  "When called interactively with no active region, copy a single line instead."
-  (interactive
-   (if mark-active (list (region-beginning) (region-end))
-     (message "Copied line")
-     (list (line-beginning-position)
-           (line-end-position)))))
-
-(defadvice kill-region (before smart-cut activate compile)
-  "When called interactively with no active region, kill a single line instead."
-  (interactive
-   (if mark-active (list (region-beginning) (region-end))
-     (list (line-beginning-position)
-           (line-beginning-position 2)))))
-
 ;; tramp, for sudo access
 (require 'tramp)
 ;; keep in mind known issues with zsh - see emacs wiki
 (setq tramp-default-method "ssh")
-
-;; ido-mode
-(require 'ido)
-(require 'ido-ubiquitous)
-(require 'flx-ido)
-(setq ido-enable-prefix nil
-      ido-enable-flex-matching t
-      ido-create-new-buffer 'always
-      ido-use-filename-at-point 'guess
-      ido-max-prospects 10
-      ido-save-directory-list-file (expand-file-name "ido.hist" prelude-savefile-dir)
-      ido-default-file-method 'selected-window
-      ido-auto-merge-work-directories-length -1)
-(ido-mode +1)
-(ido-ubiquitous-mode +1)
-;; smarter fuzzy matching for ido
-(flx-ido-mode +1)
-;; disable ido faces to see flx highlights
-(setq ido-use-faces nil)
-
-;; smex, remember recently and most frequently used commands
-(require 'smex)
-(setq smex-save-file (expand-file-name ".smex-items" prelude-savefile-dir))
-(smex-initialize)
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
 
 (set-default 'imenu-auto-rescan t)
 
@@ -287,7 +265,6 @@ The body of the advice is in BODY."
 (require 'projectile)
 (setq projectile-cache-file (expand-file-name  "projectile.cache" prelude-savefile-dir))
 (projectile-global-mode t)
-(diminish 'projectile-mode "Prjl")
 
 ;; anzu-mode enhances isearch by showing total matches and current match position
 (require 'anzu)
@@ -321,6 +298,11 @@ The body of the advice is in BODY."
 ;; clean up obsolete buffers automatically
 (require 'midnight)
 
+;; smarter kill-ring navigation
+(require 'browse-kill-ring)
+(browse-kill-ring-default-keybindings)
+(global-set-key (kbd "s-y") 'browse-kill-ring)
+
 ;; automatically indenting yanked text if in programming-modes
 (defvar yank-indent-modes
   '(LaTeX-mode TeX-mode)
@@ -350,14 +332,14 @@ indent yanked text (with prefix arg don't indent)."
     (yank-advised-indent-function (region-beginning) (region-end)))))
 
 (defadvice yank-pop (after yank-pop-indent activate)
-  "If current mode is one of 'yank-indent-modes,
+  "If current mode is one of `yank-indent-modes',
 indent yanked text (with prefix arg don't indent)."
-  (if (and (not (ad-get-arg 0))
-           (not (member major-mode yank-indent-blacklisted-modes))
-           (or (derived-mode-p 'prog-mode)
-               (member major-mode yank-indent-modes)))
+  (when (and (not (ad-get-arg 0))
+             (not (member major-mode yank-indent-blacklisted-modes))
+             (or (derived-mode-p 'prog-mode)
+                 (member major-mode yank-indent-modes)))
     (let ((transient-mark-mode nil))
-    (yank-advised-indent-function (region-beginning) (region-end)))))
+      (yank-advised-indent-function (region-beginning) (region-end)))))
 
 ;; abbrev config
 (add-hook 'text-mode-hook 'abbrev-mode)
@@ -384,6 +366,28 @@ indent yanked text (with prefix arg don't indent)."
 (setq semanticdb-default-save-directory
       (expand-file-name "semanticdb" prelude-savefile-dir))
 
+;; Compilation from Emacs
+(defun prelude-colorize-compilation-buffer ()
+  "Colorize a compilation mode buffer."
+  (interactive)
+  ;; we don't want to mess with child modes such as grep-mode, ack, ag, etc
+  (when (eq major-mode 'compilation-mode)
+    (let ((inhibit-read-only t))
+      (ansi-color-apply-on-region (point-min) (point-max)))))
+
+(require 'compile)
+(setq compilation-ask-about-save nil  ; Just save before compiling
+      compilation-always-kill t       ; Just kill old compile processes before
+                                      ; starting the new one
+      compilation-scroll-output 'first-error ; Automatically scroll to first
+                                             ; error
+      )
+
+;; Colorize output of Compilation Mode, see
+;; http://stackoverflow.com/a/3072831/355252
+(require 'ansi-color)
+(add-hook 'compilation-filter-hook #'prelude-colorize-compilation-buffer)
+
 ;; enable Prelude's keybindings
 (prelude-global-mode t)
 
@@ -393,6 +397,14 @@ indent yanked text (with prefix arg don't indent)."
 
 ;; enable winner-mode to manage window configurations
 (winner-mode +1)
+
+;; diff-hl
+(global-diff-hl-mode +1)
+(add-hook 'dired-mode-hook 'diff-hl-dired-mode)
+
+;; easy-kill
+(global-set-key [remap kill-ring-save] 'easy-kill)
+(global-set-key [remap mark-sexp] 'easy-mark)
 
 (provide 'prelude-editor)
 

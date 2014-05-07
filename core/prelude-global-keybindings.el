@@ -111,8 +111,10 @@
   [remap exchange-point-and-mark]
   'prelude-exchange-point-and-mark)
 
-(global-set-key (kbd "C-c SPC") 'ace-jump-mode)
-(global-set-key (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
+(global-set-key (kbd "C-c j") 'ace-jump-mode)
+(global-set-key (kbd "s-.") 'ace-jump-mode)
+(global-set-key (kbd "C-c J") 'ace-jump-buffer)
+(global-set-key (kbd "s->") 'ace-jump-buffer)
 
 (provide 'prelude-global-keybindings)
 

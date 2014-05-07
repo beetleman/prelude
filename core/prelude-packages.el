@@ -42,13 +42,32 @@
 (package-initialize)
 
 (defvar prelude-packages
-  '(ace-jump-mode ack-and-a-half anzu dash diminish elisp-slime-nav
-    epl expand-region flx-ido flycheck gist
-    gitconfig-mode gitignore-mode grizzl
-    guru-mode projectile ido-ubiquitous
-    magit move-text rainbow-mode
-    smartparens smex undo-tree
-    volatile-highlights zenburn-theme)
+  '(ace-jump-mode
+    ace-jump-buffer
+    ack-and-a-half
+    anzu
+    browse-kill-ring
+    dash
+    diff-hl
+    diminish
+    easy-kill
+    elisp-slime-nav
+    epl
+    expand-region
+    flycheck
+    gist
+    gitconfig-mode
+    gitignore-mode
+    grizzl
+    guru-mode
+    projectile
+    magit
+    move-text
+    rainbow-mode
+    smartparens
+    undo-tree
+    volatile-highlights
+    zenburn-theme)
   "A list of packages to ensure are installed at launch.")
 
 (defun prelude-packages-installed-p ()
@@ -67,7 +86,7 @@
 Missing packages are installed automatically."
   (mapc #'prelude-require-package packages))
 
-(defalias 'prelude-ensure-module-deps 'prelude-require-packages)
+(define-obsolete-function-alias 'prelude-ensure-module-deps 'prelude-require-packages)
 
 (defun prelude-install-packages ()
   "Install all packages listed in `prelude-packages'."
@@ -108,6 +127,8 @@ PACKAGE is installed only if not already present.  The file is opened in MODE."
     ("\\.csv\\'" csv-mode csv-mode)
     ("\\.d\\'" d-mode d-mode)
     ("\\.dart\\'" dart-mode dart-mode)
+    ("\\.ex\\'" elixir-mode elixir-mode)
+    ("\\.exs\\'" elixir-mode elixir-mode)
     ("\\.erl\\'" erlang erlang-mode)
     ("\\.feature\\'" feature-mode feature-mode)
     ("\\.go\\'" go-mode go-mode)
@@ -123,6 +144,7 @@ PACKAGE is installed only if not already present.  The file is opened in MODE."
     ("\\.pp\\'" puppet-mode puppet-mode)
     ("\\.php\\'" php-mode php-mode)
     ("PKGBUILD\\'" pkgbuild-mode pkgbuild-mode)
+    ("\\.rs\\'" rust-mode rust-mode)
     ("\\.sass\\'" sass-mode sass-mode)
     ("\\.scala\\'" scala-mode2 scala-mode)
     ("\\.scss\\'" scss-mode scss-mode)

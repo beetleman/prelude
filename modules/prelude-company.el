@@ -1,6 +1,6 @@
-;;; prelude-key-chord.el --- Key chord setup
+;;; prelude-company.el --- company-mode setup
 ;;
-;; Copyright © 2011-2013 Bozhidar Batsov
+;; Copyright © 2011-2014 Bozhidar Batsov
 ;;
 ;; Author: Bozhidar Batsov <bozhidar@batsov.com>
 ;; URL: https://github.com/bbatsov/prelude
@@ -11,7 +11,7 @@
 
 ;;; Commentary:
 
-;; Configure key-chord key bindings.
+;; company-mode config.
 
 ;;; License:
 
@@ -31,20 +31,15 @@
 ;; Boston, MA 02110-1301, USA.
 
 ;;; Code:
-(prelude-require-package 'key-chord)
+(prelude-require-packages '(company))
 
-(require 'key-chord)
+(require 'company)
 
-(key-chord-define-global "jj" 'ace-jump-word-mode)
-(key-chord-define-global "jl" 'ace-jump-line-mode)
-(key-chord-define-global "jk" 'ace-jump-char-mode)
-(key-chord-define-global "JJ" 'prelude-switch-to-previous-buffer)
-(key-chord-define-global "uu" 'undo-tree-visualize)
-(key-chord-define-global "xx" 'execute-extended-command)
-(key-chord-define-global "yy" 'browse-kill-ring)
+(setq company-idle-delay 0.5)
+(setq company-tooltip-limit 10)
+(setq company-minimum-prefix-length 2)
 
-(key-chord-mode +1)
+(global-company-mode 1)
 
-(provide 'prelude-key-chord)
-
-;;; prelude-key-chord.el ends here
+(provide 'prelude-company)
+;;; prelude-company.el ends here

@@ -32,7 +32,7 @@
 
 ;;; Code:
 
-(prelude-ensure-module-deps '(auctex))
+(prelude-require-packages '(auctex))
 (require 'smartparens-latex)
 
 ;; AUCTeX configuration
@@ -44,21 +44,22 @@
 ;; use pdflatex
 (setq TeX-PDF-mode t)
 
-(setq TeX-view-program-selection
-      '((output-dvi "DVI Viewer")
-        (output-pdf "PDF Viewer")
-        (output-html "HTML Viewer")))
+;; sensible defaults for OS X, other OSes should be covered out-of-the-box
+(when (eq system-type 'darwin)
+  (setq TeX-view-program-selection
+        '((output-dvi "DVI Viewer")
+          (output-pdf "PDF Viewer")
+          (output-html "HTML Viewer")))
 
-;; this section is good for OS X only
-;; TODO add sensible defaults for Linux/Windows
-(setq TeX-view-program-list
-      '(("DVI Viewer" "open %o")
-        ("PDF Viewer" "open %o")
-        ("HTML Viewer" "open %o")))
+  (setq TeX-view-program-list
+        '(("DVI Viewer" "open %o")
+          ("PDF Viewer" "open %o")
+          ("HTML Viewer" "open %o"))))
 
 (defun prelude-latex-mode-defaults ()
   (turn-on-auto-fill)
-  (abbrev-mode +1))
+  (abbrev-mode +1)
+  (smartparens-mode +1))
 
 (setq prelude-latex-mode-hook 'prelude-latex-mode-defaults)
 

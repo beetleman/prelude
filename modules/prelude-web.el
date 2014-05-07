@@ -32,7 +32,7 @@
 
 ;;; Code:
 
-(prelude-ensure-module-deps '(web-mode))
+(prelude-require-packages '(web-mode))
 
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
@@ -49,8 +49,6 @@
 (eval-after-load 'web-mode
   '(progn
      (defun prelude-web-mode-defaults ()
-       ;; Disable whitespace-mode when using web-mode
-       (whitespace-mode -1)
        ;; Customizations
        (setq web-mode-markup-indent-offset 4)
        (setq web-mode-css-indent-offset 2)

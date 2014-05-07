@@ -1,6 +1,6 @@
-;;; prelude-key-chord.el --- Key chord setup
+;;; prelude-shell.el --- Emacs Prelude: sh-mode configuration.
 ;;
-;; Copyright © 2011-2013 Bozhidar Batsov
+;; Copyright © 2011-2014 Bozhidar Batsov
 ;;
 ;; Author: Bozhidar Batsov <bozhidar@batsov.com>
 ;; URL: https://github.com/bbatsov/prelude
@@ -11,7 +11,7 @@
 
 ;;; Commentary:
 
-;; Configure key-chord key bindings.
+;; Some basic configuration for cc-mode and the modes derived from it.
 
 ;;; License:
 
@@ -31,20 +31,21 @@
 ;; Boston, MA 02110-1301, USA.
 
 ;;; Code:
-(prelude-require-package 'key-chord)
 
-(require 'key-chord)
+(require 'sh-script)
 
-(key-chord-define-global "jj" 'ace-jump-word-mode)
-(key-chord-define-global "jl" 'ace-jump-line-mode)
-(key-chord-define-global "jk" 'ace-jump-char-mode)
-(key-chord-define-global "JJ" 'prelude-switch-to-previous-buffer)
-(key-chord-define-global "uu" 'undo-tree-visualize)
-(key-chord-define-global "xx" 'execute-extended-command)
-(key-chord-define-global "yy" 'browse-kill-ring)
+;; recognize pretzo files as zsh scripts
+(defvar prelude-pretzo-files '("zlogin" "zlogin" "zlogout" "zpretzorc" "zprofile" "zshenv" "zshrc"))
 
-(key-chord-mode +1)
+(mapc (lambda (file)
+        (add-to-list 'auto-mode-alist `(,(format "\\%s\\'" file) . sh-mode)))
+      prelude-pretzo-files)
 
-(provide 'prelude-key-chord)
+(add-hook 'sh-mode-hook
+          (lambda ()
+            (if (and buffer-file-name
+                     (member (file-name-nondirectory buffer-file-name) prelude-pretzo-files))
+                (sh-set-shell "zsh"))))
 
-;;; prelude-key-chord.el ends here
+(provide 'prelude-shell)
+;;; prelude-shell.el ends here
