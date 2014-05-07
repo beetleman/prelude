@@ -104,7 +104,7 @@
 ;; web-mode
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 (setq web-mode-engines-alist
-      '(("ctemplate"    . "\\.html\\'")
-        ("django"       . "\\.djhtml\\'")
+      '(("ctemplate"    . "\\.hbs\\'")
+        ("django"       . "\\.html\\'")
         )
       )
