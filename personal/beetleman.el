@@ -4,30 +4,29 @@
 (setq package-list '(auto-complete
                      yasnippet
                      js2-mode
-                     skewer-mode
                      jedi
-                     sublime-themes
-                     monokai-theme))
-; initialize
+                     solarized-theme
+                     ))
+;; initialize
 (package-initialize)
-; refresh
+;; refresh
 (when (not package-archive-contents)
   (package-refresh-contents))
-; install packagest form 'package-list
+;; install packagest form 'package-list
 (dolist (package package-list)
   (when (not (package-installed-p package))
     (package-install package)))
 
 ;; gui tweaks:
-; turnoff scollbars
+;; turnoff scollbars
 (if (display-graphic-p)
     (progn
       (tool-bar-mode -1)
       (scroll-bar-mode -1)))
 
-; set font:
-(add-to-list 'default-frame-alist '(font . "Source Code Pro-11"))
-; set cursor color
+;; set font:
+(add-to-list 'default-frame-alist '(font . "Source Code Pro-10"))
+;; set cursor color
 (add-to-list 'default-frame-alist '(cursor-color . "white"))
 
 (blink-cursor-mode 1)
@@ -35,7 +34,7 @@
 (setq prelude-whitespace 1)
 
 (disable-theme 'zenburn)
-(load-theme 'monokai t)
+(load-theme 'solarized-dark t)
 
 (global-hl-line-mode 1)
 (set-face-attribute hl-line-face nil :underline nil)
@@ -45,7 +44,7 @@
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
 (ac-config-default)
 (ac-flyspell-workaround)
-;(ac-linum-workaround)
+;;(ac-linum-workaround)
 
 ;; linum-mode:
 ;; (global-linum-mode 1)
@@ -71,7 +70,7 @@
 (yas-global-mode 1)
 ; my snippets under  "~/.emacs.d/personal/snippets"
 (setq yas/root-directory "~/.emacs.d/personal/snippets")
-; Load the snippets
+                                        ; Load the snippets
 (yas/load-directory yas/root-directory)
 
 
@@ -83,11 +82,9 @@
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.json$" . js2-mode))
 
-(setq js-indent-level 2)
-(setq js2-indent-level 2)
-(setq js2-basic-offset 2)
-
-(skewer-setup)
+(setq js-indent-level 4)
+(setq js2-indent-level 4)
+(setq js2-basic-offset 4)
 
 ;; python tweaks:
 (add-hook 'python-mode-hook 'jedi:setup)
@@ -110,4 +107,4 @@
       '(("ctemplate"    . "\\.html\\'")
         ("django"       . "\\.djhtml\\'")
         )
-)
+      )
