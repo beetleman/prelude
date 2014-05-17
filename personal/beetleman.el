@@ -1,12 +1,15 @@
 ;; packages:
+(require 'package)
+(add-to-list 'package-archives
+             '("elpy" . "http://jorgenschaefer.github.io/packages/"))
 
 ; packages list
 (setq package-list '(auto-complete
                      yasnippet
                      js2-mode
-                     jedi
-                     solarized-theme
-                     ))
+                     elpy
+                     ample-theme
+                    ))
 ;; initialize
 (package-initialize)
 ;; refresh
@@ -34,7 +37,7 @@
 (setq prelude-whitespace 1)
 
 (disable-theme 'zenburn)
-(load-theme 'solarized-dark t)
+(load-theme 'ample t)
 
 (global-hl-line-mode 1)
 (set-face-attribute hl-line-face nil :underline nil)
@@ -87,9 +90,14 @@
 (setq js2-basic-offset 4)
 
 ;; python tweaks:
-(add-hook 'python-mode-hook 'jedi:setup)
-(setq jedi:setup-keys t)                      ; optional
-(setq jedi:complete-on-dot t)                 ; optional
+;;(add-hook 'python-mode-hook 'jedi:setup)
+;;(setq jedi:setup-keys t)                      ; optional
+;;(setq jedi:complete-on-dot t)                 ; optional
+
+
+(elpy-enable)
+(add-hook 'pyvenv-post-activate-hooks 'pyvenv-restart-python )
+
 
 ;; server:
 (server-start)
@@ -103,6 +111,7 @@
 
 ;; web-mode
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
 (setq web-mode-engines-alist
       '(("ctemplate"    . "\\.hbs\\'")
         ("django"       . "\\.html\\'")
