@@ -71,11 +71,6 @@
 ;; yasnippet
 (require 'yasnippet)
 (yas-global-mode 1)
-; my snippets under  "~/.emacs.d/personal/snippets"
-(setq yas/root-directory "~/.emacs.d/personal/snippets")
-                                        ; Load the snippets
-(yas/load-directory yas/root-directory)
-
 
 ;; PROGRAMING STUFF:
 
@@ -112,6 +107,8 @@
 ;; web-mode
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.hbs\\'" . web-mode))
+
 (setq web-mode-engines-alist
       '(("ctemplate"    . "\\.hbs\\'")
         ("django"       . "\\.html\\'")
