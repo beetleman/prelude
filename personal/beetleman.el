@@ -34,6 +34,8 @@
 
 (blink-cursor-mode 1)
 
+(global-visual-line-mode 1) ; 1 for on, 0 for off.
+
 (setq prelude-whitespace 1)
 
 (disable-theme 'zenburn)
