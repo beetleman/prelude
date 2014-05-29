@@ -8,6 +8,8 @@
                      yasnippet
                      js2-mode
                      elpy
+                     ggtags
+                     dired+
                      ample-theme
                     ))
 ;; initialize
@@ -43,6 +45,12 @@
 
 (global-hl-line-mode 1)
 (set-face-attribute hl-line-face nil :underline nil)
+
+
+;; dired
+(require 'dired+)
+(toggle-diredp-find-file-reuse-dir 1)
+
 
 ;; auto-commplete
 (require 'auto-complete-config)
