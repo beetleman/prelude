@@ -12,6 +12,7 @@
                      dired+
                      emmet-mode
                      ample-theme
+                     dockerfile-mode
                     ))
 ;; initialize
 (package-initialize)
