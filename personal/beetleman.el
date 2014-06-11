@@ -10,6 +10,7 @@
                      elpy
                      ggtags
                      dired+
+                     emmet-mode
                      ample-theme
                     ))
 ;; initialize
@@ -104,15 +105,6 @@
 (add-hook 'pyvenv-post-activate-hooks 'pyvenv-restart-python )
 
 
-;; server:
-(server-start)
-
-;; prelude tweaks:
-(setq prelude-guru nil)
-
-;; general tweak:
-
-(define-key global-map (kbd "RET") 'newline-and-indent)
 
 ;; web-mode
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
@@ -124,3 +116,19 @@
         ("django"       . "\\.html\\'")
         )
       )
+
+(require 'emmet-mode)
+
+(add-hook 'web-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
+(add-hook 'css-mode-hook  'emmet-mode);; enable Emmet's css abbreviation.
+(add-hook 'scss-mode-hook  'emmet-mode)
+
+;; server:
+(server-start)
+
+;; prelude tweaks:
+(setq prelude-guru nil)
+
+;; general tweak:
+
+(define-key global-map (kbd "RET") 'newline-and-indent)
