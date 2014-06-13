@@ -13,6 +13,7 @@
                      emmet-mode
                      ample-theme
                      dockerfile-mode
+                     slime
                     ))
 ;; initialize
 (package-initialize)
@@ -123,6 +124,11 @@
 (add-hook 'web-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
 (add-hook 'css-mode-hook  'emmet-mode);; enable Emmet's css abbreviation.
 (add-hook 'scss-mode-hook  'emmet-mode)
+
+;; lisp
+(require 'slime-autoloads)
+(setq inferior-lisp-program "/usr/bin/sbcl")
+(add-to-list 'slime-contribs 'slime-fancy)
 
 ;; server:
 (server-start)
