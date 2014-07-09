@@ -8,6 +8,7 @@
                      yasnippet
                      js2-mode
                      elpy
+                     ecb
                      ggtags
                      dired+
                      emmet-mode
@@ -30,7 +31,7 @@
 (if (display-graphic-p)
     (progn
       (tool-bar-mode -1)
-      (scroll-bar-mode -1)))
+      (scroll-bar-mode -1)))   
 
 ;; set font:
 (add-to-list 'default-frame-alist '(font . "Source Code Pro-10"))
@@ -41,14 +42,12 @@
 
 (global-visual-line-mode 1) ; 1 for on, 0 for off.
 
-(setq prelude-whitespace 1)
+
+(setq prelude-clean-whitespace-on-save nil)
+(setq whitespace-style (quote (spaces tabs newline space-mark tab-mark newline-mark)))
 
 (disable-theme 'zenburn)
 (load-theme 'ample t)
-
-(global-hl-line-mode 1)
-(set-face-attribute hl-line-face nil :underline nil)
-
 
 ;; dired
 (require 'dired+)
@@ -80,6 +79,11 @@
 ;;       ad-do-it))
 ;; (ad-activate 'linum-on)
 
+;; ecb-activate
+(require 'ecb)
+;(require 'ecb-autoloads)
+(semantic-mode 1)
+(setq ecb-examples-bufferinfo-buffer-name nil)
 
 ;; yasnippet
 (require 'yasnippet)
@@ -105,6 +109,7 @@
 
 (elpy-enable)
 (add-hook 'pyvenv-post-activate-hooks 'pyvenv-restart-python )
+(setq elpy-rpc-backend "jedi")
 
 
 
