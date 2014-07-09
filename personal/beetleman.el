@@ -3,19 +3,20 @@
 (add-to-list 'package-archives
              '("elpy" . "http://jorgenschaefer.github.io/packages/"))
 
-; packages list
+                                        ; packages list
 (setq package-list '(auto-complete
                      yasnippet
                      js2-mode
                      elpy
                      ecb
+                     sphinx-doc
                      ggtags
                      dired+
                      emmet-mode
                      ample-theme
                      dockerfile-mode
                      slime
-                    ))
+                     ))
 ;; initialize
 (package-initialize)
 ;; refresh
@@ -81,7 +82,7 @@
 
 ;; ecb-activate
 (require 'ecb)
-;(require 'ecb-autoloads)
+                                        ;(require 'ecb-autoloads)
 (semantic-mode 1)
 (setq ecb-examples-bufferinfo-buffer-name nil)
 
@@ -111,6 +112,9 @@
 (add-hook 'pyvenv-post-activate-hooks 'pyvenv-restart-python )
 (setq elpy-rpc-backend "jedi")
 
+(add-hook 'python-mode-hook (lambda ()
+                              (require 'sphinx-doc)
+                              (sphinx-doc-mode t)))
 
 
 ;; web-mode
