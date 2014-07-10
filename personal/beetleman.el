@@ -82,9 +82,10 @@
 
 ;; ecb-activate
 (require 'ecb)
-                                        ;(require 'ecb-autoloads)
+;(require 'ecb-autoloads)
 (semantic-mode 1)
 (setq ecb-examples-bufferinfo-buffer-name nil)
+(setq ecb-layout-name "left9")
 
 ;; yasnippet
 (require 'yasnippet)
