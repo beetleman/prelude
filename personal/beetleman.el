@@ -13,7 +13,7 @@
                      ggtags
                      dired+
                      emmet-mode
-                     ample-theme
+                     monokai-theme
                      dockerfile-mode
                      slime
                      ))
@@ -32,7 +32,7 @@
 (if (display-graphic-p)
     (progn
       (tool-bar-mode -1)
-      (scroll-bar-mode -1)))   
+      (scroll-bar-mode -1)))
 
 ;; set font:
 (add-to-list 'default-frame-alist '(font . "Source Code Pro-10"))
@@ -48,7 +48,7 @@
 (setq whitespace-style (quote (spaces tabs newline space-mark tab-mark newline-mark)))
 
 (disable-theme 'zenburn)
-(load-theme 'ample t)
+(load-theme 'monokai t)
 
 ;; dired
 (require 'dired+)
