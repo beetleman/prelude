@@ -29,10 +29,8 @@
 
 ;; gui tweaks:
 ;; turnoff scollbars
-(if (display-graphic-p)
-    (progn
-      (tool-bar-mode -1)
-      (scroll-bar-mode -1)))
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
 
 ;; set font:
 (add-to-list 'default-frame-alist '(font . "Source Code Pro-10"))
