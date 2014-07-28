@@ -12,6 +12,7 @@
                      sphinx-doc
                      ggtags
                      dired+
+                     adaptive-wrap
                      emmet-mode
                      monokai-theme
                      dockerfile-mode
@@ -31,6 +32,14 @@
 ;; turnoff scollbars
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
+
+;; adaptive wrap line
+(when (fboundp 'adaptive-wrap-prefix-mode)
+  (defun my-activate-adaptive-wrap-prefix-mode ()
+    "Toggle `visual-line-mode' and `adaptive-wrap-prefix-mode' simultaneously."
+    (setf adaptive-wrap-extra-indent 2)
+    (adaptive-wrap-prefix-mode (if visual-line-mode 1 -1)))
+  (add-hook 'visual-line-mode-hook 'my-activate-adaptive-wrap-prefix-mode))
 
 ;; set font:
 (add-to-list 'default-frame-alist '(font . "Source Code Pro-10"))
