@@ -1,9 +1,17 @@
+;;; Config --- Python, Lisp, JS
+
+;;; Commentary:
+;; Config for Python/JS/Lisp
+
+;;; Code:
+(provide 'beetleman)
+
 ;; packages:
 (require 'package)
 (add-to-list 'package-archives
              '("elpy" . "http://jorgenschaefer.github.io/packages/"))
 
-                                        ; packages list
+;; packages (list )
 (setq package-list '(auto-complete
                      yasnippet
                      js2-mode
@@ -55,7 +63,7 @@
 (setq whitespace-style (quote (spaces tabs newline space-mark tab-mark newline-mark)))
 
 (disable-theme 'zenburn)
-(load-theme 'monokai t)
+(load-theme 'cyberpunk t)
 
 ;; dired
 (require 'dired+)
@@ -167,3 +175,6 @@
 ;; general tweak:
 
 (define-key global-map (kbd "RET") 'newline-and-indent)
+(global-set-key [C-menu] 'helm-imenu)
+
+;;; beetleman.el ends here
