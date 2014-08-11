@@ -22,7 +22,7 @@
                      dired+
                      adaptive-wrap
                      emmet-mode
-                     monokai-theme
+                     cyberpunk-theme
                      dockerfile-mode
                      slime
                      ))
