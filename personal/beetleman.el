@@ -12,8 +12,7 @@
              '("elpy" . "http://jorgenschaefer.github.io/packages/"))
 
 ;; packages (list )
-(setq package-list '(auto-complete
-                     yasnippet
+(setq package-list '(yasnippet
                      js2-mode
                      elpy
                      ecb
@@ -58,7 +57,6 @@
 
 (global-visual-line-mode 1) ; 1 for on, 0 for off.
 
-
 (setq prelude-clean-whitespace-on-save nil)
 (setq whitespace-style (quote (spaces tabs newline space-mark tab-mark newline-mark)))
 
@@ -68,14 +66,6 @@
 ;; dired
 (require 'dired+)
 (toggle-diredp-find-file-reuse-dir 1)
-
-
-;; auto-commplete
-(require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
-(ac-config-default)
-(ac-flyspell-workaround)
-;;(ac-linum-workaround)
 
 ;; linum-mode:
 ;; (global-linum-mode 1)
