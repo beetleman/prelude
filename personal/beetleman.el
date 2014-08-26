@@ -15,7 +15,6 @@
 (setq package-list '(yasnippet
                      js2-mode
                      elpy
-                     ecb
                      sphinx-doc
                      ggtags
                      dired+
@@ -85,13 +84,6 @@
 ;;     (unless (member major-mode linum-mode-inhibit-modes-list)
 ;;       ad-do-it))
 ;; (ad-activate 'linum-on)
-
-;; ecb-activate
-(require 'ecb)
-;(require 'ecb-autoloads)
-(semantic-mode 1)
-(setq ecb-examples-bufferinfo-buffer-name nil)
-(setq ecb-layout-name "left9")
 
 ;; yasnippet
 (require 'yasnippet)
