@@ -52,10 +52,6 @@
 ;; set cursor color
 (add-to-list 'default-frame-alist '(cursor-color . "white"))
 
-(blink-cursor-mode 1)
-
-(global-visual-line-mode 1) ; 1 for on, 0 for off.
-
 (setq prelude-clean-whitespace-on-save nil)
 (setq whitespace-style (quote (spaces tabs newline space-mark tab-mark newline-mark)))
 
