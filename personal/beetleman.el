@@ -36,8 +36,11 @@
 
 ;; gui tweaks:
 ;; turnoff scollbars
+
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
+(when (fboundp 'horizontal-scroll-bar-mode)
+  (horizontal-scroll-bar-mode -1))
 
 ;; adaptive wrap line
 (when (fboundp 'adaptive-wrap-prefix-mode)
