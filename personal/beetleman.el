@@ -36,8 +36,11 @@
 
 ;; gui tweaks:
 ;; turnoff scollbars
+
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
+(when (fboundp 'horizontal-scroll-bar-mode)
+  (horizontal-scroll-bar-mode -1))
 
 ;; adaptive wrap line
 (when (fboundp 'adaptive-wrap-prefix-mode)
@@ -51,10 +54,6 @@
 (add-to-list 'default-frame-alist '(font . "Source Code Pro-10"))
 ;; set cursor color
 (add-to-list 'default-frame-alist '(cursor-color . "white"))
-
-(blink-cursor-mode 1)
-
-(global-visual-line-mode 1) ; 1 for on, 0 for off.
 
 (setq prelude-clean-whitespace-on-save nil)
 (setq whitespace-style (quote (spaces tabs newline space-mark tab-mark newline-mark)))
