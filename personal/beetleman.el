@@ -148,6 +148,10 @@
 
 (global-set-key (kbd "<f8>")   'fd-switch-dictionary)
 
+;; helm:
+(global-set-key [C-menu] 'helm-imenu)
+(global-set-key (kbd "C-c h") 'helm-projectile)
+
 ;; server:
 (server-start)
 
@@ -155,8 +159,6 @@
 (setq prelude-guru nil)
 
 ;; general tweak:
-
 (define-key global-map (kbd "RET") 'newline-and-indent)
-(global-set-key [C-menu] 'helm-imenu)
 
 ;;; beetleman.el ends here
