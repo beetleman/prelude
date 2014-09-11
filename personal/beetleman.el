@@ -14,8 +14,9 @@
 ;; packages (list )
 (setq package-list '(yasnippet
                      js2-mode
-                     elpy
                      sphinx-doc
+                     anaconda-mode
+                     virtualenvwrapper
                      ggtags
                      dired+
                      adaptive-wrap
@@ -24,6 +25,7 @@
                      dockerfile-mode
                      slime
                      ))
+
 ;; initialize
 (package-initialize)
 ;; refresh
@@ -52,6 +54,7 @@
 
 ;; set font:
 (add-to-list 'default-frame-alist '(font . "Source Code Pro-10"))
+
 ;; set cursor color
 (add-to-list 'default-frame-alist '(cursor-color . "white"))
 
@@ -65,24 +68,6 @@
 ;; dired
 (require 'dired+)
 (toggle-diredp-find-file-reuse-dir 1)
-
-;; linum-mode:
-;; (global-linum-mode 1)
-;; (setq linum-format " %d ")
-;; (setq linum-mode-inhibit-modes-list '(eshell-mode
-;;                                       shell-mode
-;;                                       erc-mode
-;;                                       jabber-roster-mode
-;;                                       jabber-chat-mode
-;;                                       gnus-group-mode
-;;                                       gnus-summary-mode
-;;                                       gnus-article-mode
-;;                                       speedbar-mode))
-;; (defadvice linum-on (around linum-on-inhibit-for-modes)
-;;   "Stop the load of linum-mode for some major modes."
-;;     (unless (member major-mode linum-mode-inhibit-modes-list)
-;;       ad-do-it))
-;; (ad-activate 'linum-on)
 
 ;; yasnippet
 (require 'yasnippet)
@@ -101,15 +86,6 @@
 (setq js2-basic-offset 4)
 
 ;; python tweaks:
-;;(add-hook 'python-mode-hook 'jedi:setup)
-;;(setq jedi:setup-keys t)                      ; optional
-;;(setq jedi:complete-on-dot t)                 ; optional
-
-
-(elpy-enable)
-(add-hook 'pyvenv-post-activate-hooks 'pyvenv-restart-python )
-(setq elpy-rpc-backend "jedi")
-
 (add-hook 'python-mode-hook (lambda ()
                               (require 'sphinx-doc)
                               (sphinx-doc-mode t)))
