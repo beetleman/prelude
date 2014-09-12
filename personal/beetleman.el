@@ -22,6 +22,7 @@
                      adaptive-wrap
                      emmet-mode
                      moe-theme
+                     powerline
                      dockerfile-mode
                      slime
                      ))
@@ -61,9 +62,12 @@
 (setq prelude-clean-whitespace-on-save nil)
 (setq whitespace-style (quote (spaces tabs newline space-mark tab-mark newline-mark)))
 
-(require 'moe-theme)
 (disable-theme 'zenburn)
-(load-theme 'moe-dark t)
+;; (require 'powerline)
+(require 'moe-theme)
+(moe-light)
+;; (powerline-moe-theme)
+
 
 ;; dired
 (require 'dired+)
