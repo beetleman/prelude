@@ -167,6 +167,8 @@
 (add-hook 'subword-mode-hook
           (lambda ()
             (diminish 'subword-mode)))
-
+(add-hook 'emmet-mode-hook
+          (lambda ()
+            (diminish 'emmet-mode)))
 
 ;;; beetleman.el ends here
