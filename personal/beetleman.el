@@ -23,6 +23,7 @@
                      emmet-mode
                      moe-theme
                      powerline
+                     multiple-cursors
                      dockerfile-mode
                      slime
                      ))
@@ -129,8 +130,6 @@
 (global-set-key [C-menu] 'helm-imenu)
 (global-set-key (kbd "C-c h") 'helm-projectile)
 
-;; server:
-(server-start)
 
 ;; prelude tweaks:
 (setq prelude-guru nil)
@@ -171,4 +170,13 @@
           (lambda ()
             (diminish 'emmet-mode)))
 
+;; multiple-cursors
+(require 'multiple-cursors)
+(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C->") 'mc/mark-all-like-this)
+
+;; server:
+(server-start)
 ;;; beetleman.el ends here
