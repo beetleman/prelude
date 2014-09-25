@@ -65,7 +65,7 @@
 (disable-theme 'zenburn)
 ;; (require 'powerline)
 (require 'moe-theme)
-(moe-light)
+(moe-dark)
 ;; (powerline-moe-theme)
 
 
