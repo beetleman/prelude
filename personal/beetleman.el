@@ -23,8 +23,7 @@
                      dired+
                      adaptive-wrap
                      emmet-mode
-                     moe-theme
-                     powerline
+                     solarized-theme
                      multiple-cursors
                      dockerfile-mode
                      slime
@@ -62,11 +61,20 @@
 (setq prelude-clean-whitespace-on-save nil)
 (setq whitespace-style (quote (spaces tabs newline space-mark tab-mark newline-mark)))
 
+;; theme
 (disable-theme 'zenburn)
-;; (require 'powerline)
-(require 'moe-theme)
-(moe-dark)
-;; (powerline-moe-theme)
+;; make the fringe stand out from the background
+(setq solarized-distinct-fringe-background t)
+;; make the modeline high contrast
+;(setq solarized-high-contrast-mode-line t)
+;; Use less bolding
+;(setq solarized-use-less-bold t)
+;; Use more italics
+(setq solarized-use-more-italic t)
+;; Use less colors for indicators such as git:gutter, flycheck and similar.
+(setq solarized-emphasize-indicators nil)
+;; Load solarized
+(load-theme 'solarized-light t)
 
 
 ;; dired
