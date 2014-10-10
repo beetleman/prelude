@@ -27,6 +27,7 @@
                      multiple-cursors
                      dockerfile-mode
                      slime
+                     neotree
                      ))
 
 ;; initialize
@@ -186,6 +187,10 @@
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C->") 'mc/mark-all-like-this)
+
+;; noetree
+(require 'neotree)
+(global-set-key [f9] 'neotree-toggle)
 
 ;; server:
 (server-start)
