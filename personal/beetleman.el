@@ -136,14 +136,20 @@
     ))
 
 (global-set-key (kbd "<f8>")   'fd-switch-dictionary)
+(global-set-key (kbd "<f7>") 'flyspell-mode)
+(flyspell-mode -1)
 
 ;; helm:
 (global-set-key [C-menu] 'helm-imenu)
-(global-set-key (kbd "C-c h") 'helm-projectile)
-
 
 ;; prelude tweaks:
 (setq prelude-guru nil)
+
+;; projectile tweaks
+(require 'helm-projectile)
+(helm-projectile-on)
+(global-set-key (kbd "C-c h") 'helm-projectile)
+(setq projectile-enable-caching t)
 
 ;; general tweak:
 (define-key global-map (kbd "RET") 'newline-and-indent)
