@@ -48,16 +48,8 @@
 (when (fboundp 'horizontal-scroll-bar-mode)
   (horizontal-scroll-bar-mode -1))
 
-;; adaptive wrap line
-(when (fboundp 'adaptive-wrap-prefix-mode)
-  (defun my-activate-adaptive-wrap-prefix-mode ()
-    "Toggle `visual-line-mode' and `adaptive-wrap-prefix-mode' simultaneously."
-    (setf adaptive-wrap-extra-indent 2)
-    (adaptive-wrap-prefix-mode (if visual-line-mode 1 -1)))
-  (add-hook 'visual-line-mode-hook 'my-activate-adaptive-wrap-prefix-mode))
-
 ;; set font:
-(add-to-list 'default-frame-alist '(font . "Source Code Pro-10"))
+(custom-set-faces '(default ((t (:height 100 :family "Source Code Pro")))))
 
 (setq prelude-clean-whitespace-on-save nil)
 (setq whitespace-style (quote (spaces tabs newline space-mark tab-mark newline-mark)))
