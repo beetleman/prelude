@@ -28,6 +28,7 @@
                      dockerfile-mode
                      slime
                      neotree
+                     highlight-indentation
                      ))
 
 ;; initialize
@@ -64,19 +65,8 @@
 
 ;; theme
 (disable-theme 'zenburn)
-;; make the fringe stand out from the background
-(setq solarized-distinct-fringe-background t)
-;; make the modeline high contrast
-;(setq solarized-high-contrast-mode-line t)
-;; Use less bolding
-;(setq solarized-use-less-bold t)
-;; Use more italics
-(setq solarized-use-more-italic t)
-;; Use less colors for indicators such as git:gutter, flycheck and similar.
-(setq solarized-emphasize-indicators nil)
-;; Load solarized
-(load-theme 'solarized-light t)
-
+(require 'moe-theme)
+(load-theme 'moe-light t)
 
 ;; dired
 (require 'dired+)
@@ -101,8 +91,8 @@
 ;; python tweaks:
 (add-hook 'python-mode-hook (lambda ()
                               (require 'sphinx-doc)
+                              (highlight-indentation-current-column-mode t)
                               (sphinx-doc-mode t)))
-
 
 ;; web-mode
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
@@ -186,6 +176,9 @@
 (add-hook 'emmet-mode-hook
           (lambda ()
             (diminish 'emmet-mode)))
+(add-hook 'highlight-indentation-current-column-mode
+          (lambda ()
+            (diminish 'highlight-indentation-current-column-mode)))
 
 ;; multiple-cursors
 (require 'multiple-cursors)
