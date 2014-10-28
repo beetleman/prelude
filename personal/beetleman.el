@@ -28,7 +28,6 @@
                      dockerfile-mode
                      slime
                      neotree
-                     highlight-indentation
                      ))
 
 ;; initialize
@@ -83,7 +82,6 @@
 ;; python tweaks:
 (add-hook 'python-mode-hook (lambda ()
                               (require 'sphinx-doc)
-                              (highlight-indentation-current-column-mode t)
                               (sphinx-doc-mode t)))
 
 ;; web-mode
@@ -168,9 +166,6 @@
 (add-hook 'emmet-mode-hook
           (lambda ()
             (diminish 'emmet-mode)))
-(add-hook 'highlight-indentation-current-column-mode
-          (lambda ()
-            (diminish 'highlight-indentation-current-column-mode)))
 
 ;; multiple-cursors
 (require 'multiple-cursors)
