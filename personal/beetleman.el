@@ -23,7 +23,7 @@
                      dired+
                      adaptive-wrap
                      emmet-mode
-                     solarized-theme
+                     moe-theme
                      multiple-cursors
                      dockerfile-mode
                      slime
@@ -58,7 +58,8 @@
 ;; theme
 (disable-theme 'zenburn)
 (require 'moe-theme)
-(load-theme 'moe-light t)
+;; Choose the one you like, (moe-light) or (moe-dark)
+(require 'moe-theme-switcher)
 
 ;; dired
 (require 'dired+)
@@ -72,9 +73,6 @@
 
 ;; js tweaks:
 (setq-default js2-auto-indent-p t)
-(autoload 'js2-mode "js2-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
-(add-to-list 'auto-mode-alist '("\\.json$" . js2-mode))
 
 (setq js-indent-level 4)
 (setq js2-indent-level 4)
@@ -181,5 +179,5 @@
 (global-set-key [f9] 'neotree-toggle)
 
 ;; server:
-(server-start)
+;; (server-start)
 ;;; beetleman.el ends here
