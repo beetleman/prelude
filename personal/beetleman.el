@@ -48,6 +48,7 @@
 (scroll-bar-mode -1)
 (when (fboundp 'horizontal-scroll-bar-mode)
   (horizontal-scroll-bar-mode -1))
+(setq default-frame-alist '((cursor-color . "pink")))
 
 ;; set font:
 (custom-set-faces '(default ((t (:height 100 :family "Source Code Pro")))))
