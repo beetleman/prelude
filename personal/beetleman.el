@@ -44,11 +44,11 @@
 ;; gui tweaks:
 ;; turnoff scollbars
 
+(setq default-frame-alist '((cursor-color . "pink")))
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (when (fboundp 'horizontal-scroll-bar-mode)
   (horizontal-scroll-bar-mode -1))
-(setq default-frame-alist '((cursor-color . "pink")))
 
 ;; set font:
 (custom-set-faces '(default ((t (:height 100 :family "Source Code Pro")))))
@@ -131,9 +131,6 @@
 (helm-projectile-on)
 (global-set-key (kbd "C-c h") 'helm-projectile)
 (setq projectile-enable-caching t)
-
-;; general tweak:
-(define-key global-map (kbd "RET") 'newline-and-indent)
 
 ;; diminish configuration
 (require 'diminish)
