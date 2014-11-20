@@ -20,6 +20,7 @@
                      slime
                      neotree
                      py-autopep8
+                     writeroom-mode
                      ))
 
 ;; initialize
