@@ -16,5 +16,4 @@
 
 ;; theme
 (disable-theme 'zenburn)
-(load-theme 'ample-flat t)
-(enable-theme 'ample-flat)
+(load-theme 'sanityinc-tomorrow-eighties t)
