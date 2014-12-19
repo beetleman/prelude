@@ -14,7 +14,7 @@
                      dired+
                      adaptive-wrap
                      emmet-mode
-                     color-theme-sanityinc-tomorrow
+                     solarized-theme
                      multiple-cursors
                      dockerfile-mode
                      slime
