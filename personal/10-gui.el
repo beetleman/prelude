@@ -36,4 +36,4 @@
 ; (setq solarized-scale-org-headlines nil)
 
 
-(load-theme 'solarized-dark t)
+(load-theme 'solarized-light t)
