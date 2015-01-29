@@ -1,0 +1,6 @@
+# contributor: Mateusz Probachta <mateusz.probachtak@gmail.com>
+# name: propg
+# --
+@property
+def ${1:fun}(${2:args}):
+    $0
