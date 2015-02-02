@@ -7,7 +7,7 @@
    (scroll-bar-mode -1))
 
 ;; set font:
-;; (custom-set-faces '(default ((t (:height 105 :family "Source Code Pro")))))
+(custom-set-faces '(default ((t (:height 110 :family "DejaVu Sans Mono")))))
 
 ;; theme:
 
