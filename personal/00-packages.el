@@ -12,7 +12,6 @@
                      virtualenvwrapper
                      ggtags
                      dired+
-                     adaptive-wrap
                      emmet-mode
                      color-theme-sanityinc-tomorrow
                      multiple-cursors
