@@ -1,26 +1,23 @@
 (require 'package)
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
-
 
 ;; packages (list )
-(setq package-list '(yasnippet
-                     js2-mode
-                     sphinx-doc
-                     anaconda-mode
-                     virtualenvwrapper
-                     ggtags
-                     dired+
-                     emmet-mode
-                     color-theme-sanityinc-tomorrow
-                     multiple-cursors
-                     dockerfile-mode
-                     slime
-                     neotree
-                     py-autopep8
-                     writeroom-mode
-                     ))
+(setq package-list
+      '(yasnippet
+        js2-mode
+        sphinx-doc
+        anaconda-mode
+        virtualenvwrapper
+        ggtags
+        dired+
+        emmet-mode
+        color-theme-sanityinc-tomorrow
+        multiple-cursors
+        dockerfile-mode
+        slime
+        neotree
+        py-autopep8
+        writeroom-mode
+        ))
 
 ;; initialize
 (package-initialize)
