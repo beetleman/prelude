@@ -13,4 +13,5 @@
    slime
    neotree
    py-autopep8
+   ag
    ))
