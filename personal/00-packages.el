@@ -14,4 +14,5 @@
    neotree
    py-autopep8
    ag
+   highlight-indentation
    ))

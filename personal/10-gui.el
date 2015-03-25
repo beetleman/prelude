@@ -13,4 +13,6 @@
 
 (disable-theme 'zenburn)
 
-(load-theme 'sanityinc-tomorrow-bright t)
+(load-theme 'sanityinc-tomorrow-eighties t)
+
+(highlight-indentation-mode)

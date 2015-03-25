@@ -31,3 +31,9 @@
 (add-hook 'emmet-mode-hook
           (lambda ()
             (diminish 'emmet-mode)))
+(add-hook 'highlight-indentation-mode-hook
+          (lambda ()
+            (diminish 'highlight-indentation-mode)))
+(add-hook 'highlight-indentation-current-column-mode-hook
+          (lambda ()
+            (diminish 'highlight-indentation-current-column-mode)))
