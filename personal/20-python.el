@@ -2,7 +2,6 @@
 (require 'sphinx-doc)
 (add-hook 'python-mode-hook (lambda ()
                               (highlight-indentation-mode t)
-                              (highlight-indentation-current-column-mode t)
                               (sphinx-doc-mode t)))
 
 (add-hook 'anaconda-mode-hook (lambda ()
