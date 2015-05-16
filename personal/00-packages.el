@@ -16,4 +16,5 @@
    ag
    highlight-indentation
    clojure-snippets
+   company-irony
    ))
