@@ -13,7 +13,7 @@
 
 (disable-theme 'zenburn)
 
-(load-theme 'sanityinc-tomorrow-eighties t)
+(load-theme 'sanityinc-tomorrow-night t)
 
 ;; dirty hacks for cursor color in gnome/kde
 (setq default-frame-alist
