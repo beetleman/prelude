@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: rpdb trace
+# key: rtr
+# group: debug
+# --
+from celery.contrib import rdb; rdb.set_trace()
