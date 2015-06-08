@@ -19,7 +19,8 @@
 
 (add-hook 'anaconda-mode-hook
           (lambda ()
-            (local-set-key (kbd "M-.") 'my-anaconda-mode-goto)
+            (local-set-key (kbd "M-.") 'anaconda-mode-goto)
+            (local-set-key (kbd "M-,") 'my-anaconda-mode-goto)
             (local-set-key (kbd "M-*") 'anaconda-nav-pop-marker)))
 
 (setq py-autopep8-options '("--max-line-length=400"))  ;; i like control this by my own
