@@ -5,4 +5,4 @@
 (global-set-key [C-menu] 'helm-imenu)
 (global-set-key (kbd "C-c h") 'helm-projectile)
 
-(setq prelude-guru nil)
+;; (setq prelude-guru nil)
