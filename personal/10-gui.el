@@ -13,12 +13,11 @@
 
 (disable-theme 'zenburn)
 
-(load-theme 'sanityinc-tomorrow-night t)
+(require 'moe-theme)
 
-;; dirty hacks for cursor color in gnome/kde
-(setq default-frame-alist
-      (append default-frame-alist
-              '((cursor-color . "light coral")
-                )))
+(setq calendar-latitude +50)
+(setq calendar-longitude +20)
+
+(require 'moe-theme-switcher)
 
 (highlight-indentation-mode)

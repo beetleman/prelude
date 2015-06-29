@@ -7,7 +7,7 @@
    ggtags
    dired+
    emmet-mode
-   color-theme-sanityinc-tomorrow
+   moe-theme
    multiple-cursors
    dockerfile-mode
    slime
