@@ -2,6 +2,8 @@
 (require 'sphinx-doc)
 (require 'anaconda-mode)
 
+(add-to-list 'auto-mode-alist '("\\.py.sample\\'" . python-mode))
+
 (add-hook 'python-mode-hook
           (lambda ()
             (highlight-indentation-mode t)
