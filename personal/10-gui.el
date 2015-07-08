@@ -17,7 +17,10 @@
 
 (setq calendar-latitude +50)
 (setq calendar-longitude +20)
+(setq moe-theme-highlight-buffer-id t)
 
 (require 'moe-theme-switcher)
+
+(powerline-moe-theme)
 
 (highlight-indentation-mode)

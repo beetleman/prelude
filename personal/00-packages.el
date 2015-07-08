@@ -8,6 +8,7 @@
    dired+
    emmet-mode
    moe-theme
+   powerline
    multiple-cursors
    dockerfile-mode
    slime
