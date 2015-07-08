@@ -37,3 +37,9 @@
 (add-hook 'highlight-indentation-current-column-mode-hook
           (lambda ()
             (diminish 'highlight-indentation-current-column-mode)))
+(add-hook 'helm-mode-hook
+          (lambda ()
+            (diminish 'helm-mode)))
+(add-hook 'guru-mode-hook
+          (lambda ()
+            (diminish 'guru-mode)))
