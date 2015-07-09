@@ -13,6 +13,7 @@
 
 (disable-theme 'zenburn)
 
+(require 'powerline)
 (require 'moe-theme)
 
 (setq calendar-latitude +50)
