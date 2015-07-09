@@ -18,6 +18,7 @@
 (setq calendar-latitude +50)
 (setq calendar-longitude +20)
 (setq moe-theme-highlight-buffer-id t)
+(moe-theme-set-color 'purple)
 
 (require 'moe-theme-switcher)
 
