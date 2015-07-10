@@ -1,4 +1,4 @@
 ;; lisp
-(require 'slime-autoloads)
-(setq inferior-lisp-program "/usr/bin/sbcl")
-(add-to-list 'slime-contribs 'slime-fancy)
+(setq slime-default-lisp 'ccl)
+(setq slime-lisp-implementations
+      '((ccl ("/opt/ccl/lx86cl64"))))
