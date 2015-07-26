@@ -6,7 +6,6 @@
 
 (add-hook 'python-mode-hook
           (lambda ()
-            (highlight-indentation-mode t)
             (sphinx-doc-mode t)))
 
 ;; from anaconda-mode
