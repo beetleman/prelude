@@ -7,7 +7,7 @@
    ggtags
    dired+
    emmet-mode
-   moe-theme
+   color-theme-sanityinc-tomorrow
    powerline
    multiple-cursors
    dockerfile-mode
@@ -15,7 +15,6 @@
    neotree
    py-autopep8
    ag
-   highlight-indentation
    clojure-snippets
    company-irony
    ))

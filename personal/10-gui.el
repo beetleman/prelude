@@ -13,13 +13,10 @@
 
 (disable-theme 'zenburn)
 
+(require 'color-theme-sanityinc-tomorrow)
 (require 'powerline)
-(require 'moe-theme)
 
-(setq moe-theme-highlight-buffer-id t)
-(moe-theme-set-color 'purple)
+(load-theme 'sanityinc-tomorrow-night t)
+(powerline-default-theme)
 
-(load-theme 'moe-dark t)
-(powerline-moe-theme)
-
-(highlight-indentation-mode)
+(global-linum-mode 1)
