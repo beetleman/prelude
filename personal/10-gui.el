@@ -14,9 +14,4 @@
 (disable-theme 'zenburn)
 
 (require 'color-theme-sanityinc-tomorrow)
-(require 'powerline)
-
 (load-theme 'sanityinc-tomorrow-night t)
-(powerline-default-theme)
-
-(global-linum-mode 1)

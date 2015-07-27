@@ -8,7 +8,6 @@
    dired+
    emmet-mode
    color-theme-sanityinc-tomorrow
-   powerline
    multiple-cursors
    dockerfile-mode
    slime
