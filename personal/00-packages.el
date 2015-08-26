@@ -7,6 +7,7 @@
    ggtags
    dired+
    emmet-mode
+   comment-dwim-2
    color-theme-sanityinc-tomorrow
    multiple-cursors
    dockerfile-mode
