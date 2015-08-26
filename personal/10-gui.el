@@ -10,7 +10,9 @@
 (disable-theme 'zenburn)
 
 (require 'color-theme-sanityinc-tomorrow)
-(load-theme 'sanityinc-tomorrow-night t)
+
+(load-theme 'sanityinc-tomorrow-bright t) ; cyberpunkish
+;; (load-theme 'sanityinc-tomorrow-eighties t) ; zenburnish
 
 ;; set font:
 (set-face-attribute 'default nil :family "Terminus" :height 120)
