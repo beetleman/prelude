@@ -8,7 +8,7 @@
    dired+
    emmet-mode
    comment-dwim-2
-   solarized-theme
+   color-theme-sanityinc-tomorrow
    multiple-cursors
    dockerfile-mode
    slime

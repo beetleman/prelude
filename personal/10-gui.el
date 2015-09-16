@@ -14,7 +14,7 @@
 (setq calendar-longitude 19.93)
 
 (require 'theme-changer)
-(change-theme 'solarized-light 'solarized-dark)
+(change-theme 'sanityinc-tomorrow-day 'sanityinc-tomorrow-night)
 
 
 ;; set font:
