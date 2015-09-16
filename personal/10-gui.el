@@ -9,10 +9,13 @@
 ;; theme:
 (disable-theme 'zenburn)
 
-(require 'color-theme-sanityinc-tomorrow)
+(setq calendar-location-name "Krakow, PL")
+(setq calendar-latitude 50.06)
+(setq calendar-longitude 19.93)
 
-(load-theme 'sanityinc-tomorrow-bright t) ; cyberpunkish
-;; (load-theme 'sanityinc-tomorrow-eighties t) ; zenburnish
+(require 'theme-changer)
+(change-theme 'solarized-light 'solarized-dark)
+
 
 ;; set font:
 (set-face-attribute 'default nil :family "Terminus" :height 120)
