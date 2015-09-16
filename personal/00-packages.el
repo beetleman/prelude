@@ -8,7 +8,9 @@
    dired+
    emmet-mode
    comment-dwim-2
-   color-theme-sanityinc-tomorrow
+   anti-zenburn-theme
+   zenburn-theme
+   theme-changer
    multiple-cursors
    dockerfile-mode
    slime
@@ -17,5 +19,4 @@
    ag
    clojure-snippets
    company-irony
-   theme-changer
    ))
