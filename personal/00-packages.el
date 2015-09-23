@@ -8,9 +8,6 @@
    dired+
    emmet-mode
    comment-dwim-2
-   anti-zenburn-theme
-   zenburn-theme
-   theme-changer
    multiple-cursors
    dockerfile-mode
    slime
