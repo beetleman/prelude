@@ -3,6 +3,7 @@
 (require 'anaconda-mode)
 
 (add-to-list 'auto-mode-alist '("\\.py.sample\\'" . python-mode))
+(add-to-list 'auto-mode-alist '("\\wscript\\'" . python-mode))
 
 (add-hook 'python-mode-hook
           (lambda ()
