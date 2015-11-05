@@ -9,3 +9,7 @@
 ;; set font:
 (set-face-attribute 'default nil :family "Terminus" :height 120)
 (custom-set-variables '(line-spacing 2))
+
+;; theme
+(disable-theme 'zenburn)
+(load-theme 'flatui t)
