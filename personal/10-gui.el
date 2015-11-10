@@ -12,4 +12,4 @@
 
 ;; theme
 (disable-theme 'zenburn)
-(load-theme 'flatui t)
+(load-theme 'material t)
