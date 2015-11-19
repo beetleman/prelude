@@ -16,5 +16,5 @@
    ag
    clojure-snippets
    company-irony
-   material-theme
+   spacemacs-theme
    ))

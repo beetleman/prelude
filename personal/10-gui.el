@@ -12,4 +12,4 @@
 
 ;; theme
 (disable-theme 'zenburn)
-(load-theme 'material t)
+(load-theme 'spacemacs-dark t)
