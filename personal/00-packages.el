@@ -17,4 +17,5 @@
    clojure-snippets
    company-irony
    spacemacs-theme
+   exec-path-from-shell
    ))
