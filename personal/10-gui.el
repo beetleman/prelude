@@ -12,4 +12,10 @@
 
 ;; theme
 (disable-theme 'zenburn)
-(load-theme 'spacemacs-dark t)
+
+(setq calendar-location-name "Krakow, PL")
+(setq calendar-latitude 50.06)
+(setq calendar-longitude 19.93)
+
+(require 'theme-changer)
+(change-theme 'spacemacs-light 'spacemacs-dark)
