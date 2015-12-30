@@ -16,7 +16,7 @@
    ag
    clojure-snippets
    company-irony
-   spacemacs-theme
+   solarized-theme
    theme-changer
    exec-path-from-shell
    ))

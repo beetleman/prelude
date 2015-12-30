@@ -18,4 +18,10 @@
 (setq calendar-longitude 19.93)
 
 (require 'theme-changer)
-(change-theme 'spacemacs-light 'spacemacs-dark)
+
+
+;; Use more italics
+(setq solarized-use-more-italic t)
+(setq solarized-distinct-fringe-background t)
+
+(change-theme 'solarized-light 'solarized-dark)
