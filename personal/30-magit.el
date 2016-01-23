@@ -1,6 +1,6 @@
 (require 'exec-path-from-shell)
 
-(setq magit-last-seen-setup-instructions "1.4.0")
+;; (setq magit-last-seen-setup-instructions "1.4.0")
 
 (defun load-ssh-agent-variable ()
   (exec-path-from-shell-copy-env "SSH_AGENT_PID")
