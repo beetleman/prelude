@@ -16,7 +16,6 @@
    ag
    clojure-snippets
    company-irony
-   solarized-theme
-   theme-changer
+   monokai-theme
    exec-path-from-shell
    ))
