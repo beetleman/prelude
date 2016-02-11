@@ -14,4 +14,4 @@
 (setq inhibit-x-resources 't)
 (disable-theme 'zenburn)
 
-(load-theme 'monokai 't)
+(load-theme 'material-light t)

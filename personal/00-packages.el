@@ -16,6 +16,6 @@
    ag
    clojure-snippets
    company-irony
-   monokai-theme
+   material-theme
    exec-path-from-shell
    ))
