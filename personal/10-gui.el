@@ -14,4 +14,5 @@
 (setq inhibit-x-resources 't)
 (disable-theme 'zenburn)
 
-(load-theme 'material-light t)
+(setq solarized-distinct-fringe-background t)
+(load-theme 'solarized-light t)
