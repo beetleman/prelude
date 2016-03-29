@@ -7,7 +7,7 @@
    (scroll-bar-mode -1))
 
 ;; set font:
-(set-face-attribute 'default nil :family "DejaVu Sans Mono" :height 105)
+(set-face-attribute 'default nil :family "InputMono" :height 105)
 (custom-set-variables '(line-spacing 2))
 
 ;; theme
