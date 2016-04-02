@@ -16,6 +16,5 @@
    ag
    clojure-snippets
    company-irony
-   solarized-theme
    exec-path-from-shell
    ))
