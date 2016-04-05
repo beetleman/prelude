@@ -9,3 +9,7 @@
 ;; set font:
 (set-face-attribute 'default nil :family "InputMono" :height 105)
 (custom-set-variables '(line-spacing 2))
+
+(disable-theme 'zenburn)
+
+(load-theme 'leuven t t)

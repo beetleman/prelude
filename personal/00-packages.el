@@ -14,6 +14,7 @@
    neotree
    py-autopep8
    ag
+   leuven-theme
    clojure-snippets
    company-irony
    exec-path-from-shell
