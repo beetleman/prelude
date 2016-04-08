@@ -12,4 +12,4 @@
 
 (disable-theme 'zenburn)
 
-(load-theme 'leuven t t)
+(load-theme 'leuven t)
