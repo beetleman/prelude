@@ -18,4 +18,5 @@
    clojure-snippets
    company-irony
    exec-path-from-shell
+   sql-indent
    ))

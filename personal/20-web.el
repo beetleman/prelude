@@ -1,11 +1,13 @@
 ;; web-mode
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.handlebars\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.hbs\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.hbs\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
 
 (setq web-mode-engines-alist
       '(("ctemplate"    . "\\.hbs\\'")
+        ("ctemplate"    . "\\.handlebars\\'")
         ("django"       . "\\.html\\'")
         )
       )
