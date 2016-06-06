@@ -1,5 +1,7 @@
 ;; python tweaks:
 (require 'sphinx-doc)
+(require 'pyenv-mode)
+(pyenv-mode)
 
 (add-to-list 'auto-mode-alist '("\\.py.sample\\'" . python-mode))
 (add-to-list 'auto-mode-alist '("\\wscript\\'" . python-mode))

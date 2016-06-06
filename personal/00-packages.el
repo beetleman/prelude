@@ -3,7 +3,7 @@
    js2-mode
    sphinx-doc
    anaconda-mode
-   virtualenvwrapper
+   pyenv-mode
    ggtags
    dired+
    emmet-mode
