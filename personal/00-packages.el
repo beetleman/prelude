@@ -14,7 +14,7 @@
    neotree
    py-autopep8
    ag
-   solarized-theme
+   alect-themes
    clojure-snippets
    company-irony
    exec-path-from-shell
