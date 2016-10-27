@@ -24,3 +24,5 @@ tramp
 /var/pcache
 .mc-lists.el
 /anaconda-mode/*
+.emacs.desktop
+.emacs.desktop.lock
