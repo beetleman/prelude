@@ -19,4 +19,5 @@
    company-irony
    exec-path-from-shell
    sql-indent
+   editorconfig
    ))
